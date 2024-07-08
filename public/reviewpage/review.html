@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="review.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/90746bbfba.js" crossorigin="anonymous"></script>
+    <style>
+        /* Custom CSS for modal overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            z-index: 1001; /* Ensure it's above the overlay */
+        }
+    </style>
+</head>
+<body style="background-color: #14171C">
+
+<nav class="navbar navbar-expand-lg custom-gradient align-items-start">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white fw-bolder fs-2" href="/public/home.html">b-sider</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white text-center fw-bold dropdown-toggle" href="#" id="navbarDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <form class="px-4 py-3 ">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control bg-dark-subtle" id="searchInput"
+                                           placeholder="Search...">
+                                </div>
+                                <button type="submit" class="btn bg-black btn-primary">Search</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center fw-bold" aria-current="page" href="/public/charts/charts.html">Charts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center fw-bold" aria-current="page" href="/public/explore/explore.html">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center fw-bold" href="#">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-center" href="#" id="postReviewBtn" data-bs-toggle="modal" data-bs-target="#postReviewModal">
+                        <button class="btn bg-white text-black btn-outline-light rounded-3 fw-bolder">Post Review</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="https://i.scdn.co/image/ab67616d0000b273c869fa3b4e0ce4dd9818a40e" class="img-fluid rounded" alt="Image" style="padding-right:50px; margin-bottom: 20px;">
+            <h1 class="text-white fw-bolder">Cherry Waves</h1>
+            <h2 class="text-white fw-bolder">Deftones</h2>
+            <h4 class="text-white">Track 4 on Saturday Night Wrist</h4>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <h1 class="text-white fw-bolder border-bottom">Recent Reviews</h1>
+            </div>
+            <div class="row">
+                <h4 class="text-white fw-lighter">review by <b>USER10001</b> &#9733;&#9733;&#9733;</h4>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget condimentum leo. In hac habitasse platea dictumst. Quisque nec egestas lacus, in ultricies sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque lorem quam, faucibus tincidunt est eu, vehicula bibendum dui. In hac habitasse platea dictumst. Donec a ante nisl. Donec malesuada efficitur diam vel rutrum. Aliquam sodales sed nisi sit amet fermentum. Curabitur aliquet sodales tellus, sit amet pretium dolor dictum eget. Nullam eu neque lectus. Donec lobortis condimentum porta. Duis vestibulum, ipsum sit amet condimentum convallis, lorem ex tempus metus, ut accumsan purus justo a mi. Sed faucibus id nulla tristique fringilla. Phasellus suscipit posuere elementum. Duis ex enim, pharetra id lobortis commodo, volutpat porta lectus.</p>
+            </div>
+            <div class="row">
+                <h4 class="text-white fw-lighter">review by <b>USER10002</b> &#9733;&#9733;&#9733;</h4>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget condimentum leo. In hac habitasse platea dictumst. Quisque nec egestas lacus, in ultricies sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque lorem quam, faucibus tincidunt est eu, vehicula bibendum dui. In hac habitasse platea dictumst. Donec a ante nisl. Donec malesuada efficitur diam vel rutrum. Aliquam sodales sed nisi sit amet fermentum. Curabitur aliquet sodales tellus, sit amet pretium dolor dictum eget. Nullam eu neque lectus. Donec lobortis condimentum porta. Duis vestibulum, ipsum sit amet condimentum convallis, lorem ex tempus metus, ut accumsan purus justo a mi. Sed faucibus id nulla tristique fringilla. Phasellus suscipit posuere elementum. Duis ex enim, pharetra id lobortis commodo, volutpat porta lectus.</p>
+            </div>
+            <div class="row">
+                <h4 class="text-white fw-lighter">review by <b>USER10003</b> &#9733;&#9733;&#9733;</h4>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget condimentum leo. In hac habitasse platea dictumst. Quisque nec egestas lacus, in ultricies sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque lorem quam, faucibus tincidunt est eu, vehicula bibendum dui. In hac habitasse platea dictumst. Donec a ante nisl. Donec malesuada efficitur diam vel rutrum. Aliquam sodales sed nisi sit amet fermentum. Curabitur aliquet sodales tellus, sit amet pretium dolor dictum eget. Nullam eu neque lectus. Donec lobortis condimentum porta. Duis vestibulum, ipsum sit amet condimentum convallis, lorem ex tempus metus, ut accumsan purus justo a mi. Sed faucibus id nulla tristique fringilla. Phasellus suscipit posuere elementum. Duis ex enim, pharetra id lobortis commodo, volutpat porta lectus.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="post
+
+ReviewModal" tabindex="-1" aria-labelledby="postReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="postReviewModalLabel">Post Review</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-black">
+                <form>
+                    <div class="mb-3 bg-black">
+                        <label for="reviewText" class="form-label">Your Review:</label>
+                        <textarea class="form-control" id="reviewText" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function() {
+        var modal = bootstrap.Modal.getInstance(document.getElementById('postReviewModal'));
+        modal.hide();
+    });
+</script>
+
+</body>
+</html>

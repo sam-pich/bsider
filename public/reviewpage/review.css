@@ -1,0 +1,16 @@
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+
+.custom-gradient {
+    --gradient-start: rgba(0, 0, 0, 1);
+    --gradient-end: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to bottom, var(--gradient-start) 50px, var(--gradient-end) 100px);
+    height: 100px;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
